@@ -3,3 +3,14 @@
   animation-duration: $duration;
   animation-timing-function: $time-function;
 }
+
+
+@mixin clearfix {
+  &::after {
+    /*Used to show pseudo elements*/
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
