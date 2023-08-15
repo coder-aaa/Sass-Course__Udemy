@@ -1,2 +1,2 @@
 sass:
-	sass --watch ./css/sass/style.scss:./css/style.css
+	sass --watch ./css/sass/main.scss:./css/style.css

@@ -7,16 +7,47 @@
 }
 
 body {
+  box-sizing: border-box;
+}
+
+html {
+  /*Defines what 1 rem is
+  In this case 10 px.*/
+  font-size: 62.5%;
+}
+
+body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
   line-height: 1.7;
   color: #999;
   padding: 3rem;
-  box-sizing: border-box;
 }
 
-html {
-  font-size: 62.5%;
+.heading-primary {
+  color: #ffffff;
+  text-transform: uppercase;
+  /*used to hide shaking in the animation*/
+  backface-visibility: hidden;
+  margin-bottom: 6rem;
+}
+.heading-primary--main {
+  display: block;
+  font-size: 6rem;
+  font-weight: 400;
+  letter-spacing: 3.5rem;
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
+}
+.heading-primary--sub {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1.75rem;
+  animation-name: moveInRight;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
 }
 
 .header {
@@ -46,32 +77,6 @@ html {
   left: 50%;
   /*Centers the element*/
   transform: translate(-50%, -50%);
-}
-
-.heading-primary {
-  color: #ffffff;
-  text-transform: uppercase;
-  /*used to hide shaking in the animation*/
-  backface-visibility: hidden;
-  margin-bottom: 6rem;
-}
-.heading-primary--main {
-  display: block;
-  font-size: 6rem;
-  font-weight: 400;
-  letter-spacing: 3.5rem;
-  animation-name: moveInLeft;
-  animation-duration: 1s;
-  animation-timing-function: ease-in;
-}
-.heading-primary--sub {
-  display: block;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 1.75rem;
-  animation-name: moveInRight;
-  animation-duration: 1s;
-  animation-timing-function: ease-out;
 }
 
 .btn:link, .btn:visited {

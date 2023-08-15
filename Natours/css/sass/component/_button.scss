@@ -1,0 +1,59 @@
+.btn {
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all 0.2s;
+    position: relative;
+    font-size: 1.6rem;
+  }
+  &:hover {
+    /*On the Y axis things moves from the top to the bottom
+    so a negative value moves in the up direction*/
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      /*to make an element disappear*/
+      opacity: 0;
+    }
+  }
+  &:active {
+    /*When click an elements it is the active state.*/
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  }
+  &::after {
+    /*The after sudo element needs a content property are it is not
+    going to appear*/
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+  }
+  &--white {
+    background-color: $white;
+    color: $gray;
+    &::after {
+      background-color: $white;
+    }
+  }
+  &--animated {
+    @include animation(moveInBottom, 0.5s, ease-out);
+    /*Applies styles before the animation starts*/
+    animation-fill-mode: backwards;
+  }
+
+  &--invert {
+    filter: invert(1);
+  }
+}
