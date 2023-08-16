@@ -80,11 +80,20 @@ body {
 
 .u-center-text {
   text-align: center;
+
 }
 
 .u-margin-bottom-small {
   margin-bottom: 1.5rem;
 }
+
+
+}
+
+.u-margin-bottom-small {
+  margin-bottom: 1.5rem;
+}
+
 
 .u-margin-bottom-medium {
   margin-bottom: 4rem;
@@ -96,7 +105,6 @@ body {
 
 .row {
   max-width: 114rem;
-  background-color: #eee;
   margin: 0 auto;
   /*[] - attribute selector
   ^= - start with
@@ -148,7 +156,7 @@ body {
   position: relative;
   height: 95vh;
   /*The nearest image or to : will be at the top*/
-  background-image: linear-gradient(to bottom right, rgba(120, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg");
+  background-image: linear-gradient(to bottom right, rgba(120, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
   background-size: cover;
   /*Make the background always stays the top*/
   background-position: top;
@@ -177,7 +185,7 @@ body {
   position: relative;
   height: 95vh;
   /*The nearest image or to : will be at the top*/
-  background-image: linear-gradient(to bottom right, rgba(120, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg");
+  background-image: linear-gradient(to bottom right, rgba(120, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
   background-size: cover;
   /*Make the background always stays the top*/
   background-position: top;
@@ -313,11 +321,43 @@ body {
   transform: scale(0.95);
 }
 
+.feature-box {
+  background-color: rgba(255, 255, 255, 0.8);
+  font-size: 1.5rem;
+  padding: 2.5rem;
+  text-align: center;
+  border-radius: 0.3rem;
+  box-shadow: 0 1.5rem 4rem rgba(9, 9, 9, 0.15);
+  transition: transform 0.3s;
+}
+.feature-box__icon {
+  font-size: 6rem;
+  margin-bottom: 0.5rem;
+  background-image: linear-gradient(to right, #78d56f, #28b485);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.feature-box:hover {
+  transform: translateY(-1.5rem) scale(1.03);
+}
 .section-about {
   background-color: #f7f7f7;
   padding: 25rem 0;
   /*Moves the element up*/
   margin-top: -25vh;
+}
+
+.section-features {
+  padding: 20rem 0;
+  margin-top: -10rem;
+  background-image: linear-gradient(to bottom right, rgba(120, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/nat-4.jpg);
+  background-size: cover;
+  transform: skewY(-7deg);
+  /*Selects all of the direct children*/
+}
+.section-features > * {
+  transform: skewY(7deg);
 }
 
 @keyframes moveInLeft {

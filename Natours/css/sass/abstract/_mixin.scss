@@ -12,3 +12,16 @@
     clear: both;
   }
 }
+@mixin background_gradient_with_image(
+  $img_url,
+  $gradient_start_colour,
+  $gradient_end_colour
+) {
+  background-image: linear-gradient(
+      to bottom right,
+      rgba($gradient_start_colour, 0.8),
+      rgba($gradient_end_colour, 0.8)
+    ),
+    url(#{$img_url});
+}
+

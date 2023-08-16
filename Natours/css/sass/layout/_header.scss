@@ -2,12 +2,11 @@
   position: relative;
   height: 95vh;
   /*The nearest image or to : will be at the top*/
-  background-image: linear-gradient(
-      to bottom right,
-      rgba($light-green, 0.8),
-      rgba($dark-green, 0.8)
-    ),
-    url("../img/hero.jpg");
+  @include background_gradient_with_image(
+    "../img/hero.jpg",
+    $light-green,
+    $dark-green
+  );
   background-size: cover;
   /*Make the background always stays the top*/
   background-position: top;
