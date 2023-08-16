@@ -12,7 +12,6 @@
   *= - contains
   */
   [class^="col-"] {
-    background-color: $light-green;
     float: left;
     &:not(:last-child) {
       margin-right: $gutter-horizontal;

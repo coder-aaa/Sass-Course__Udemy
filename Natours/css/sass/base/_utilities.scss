@@ -1,0 +1,7 @@
+.u-center-text {
+  text-align: center;
+}
+@include makeMarginBottom();
+@include makeMarginTop();
+@include makeMarginRight();
+@include makeMarginLeft();
