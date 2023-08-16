@@ -1,7 +1,13 @@
 .u-center-text {
   text-align: center;
 }
-@include makeMarginBottom();
-@include makeMarginTop();
-@include makeMarginRight();
-@include makeMarginLeft();
+
+.u-margin-bottom-small {
+  margin-bottom: 1.5rem;
+}
+.u-margin-bottom-medium {
+  margin-bottom: 4rem;
+}
+.u-margin-bottom-large {
+  margin-bottom: 8rem;
+}

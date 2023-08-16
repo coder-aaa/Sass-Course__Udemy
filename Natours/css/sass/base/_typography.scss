@@ -45,4 +45,16 @@ body {
       text-shadow: 0.5rem 1rem 2rem rgba($black, 0.2);
     }
   }
+  &-tertiary {
+    font-size: $font-small;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+}
+
+.paragraph {
+  font-size: $font-small;
+  &:not(:last-child) {
+    margin-bottom: 3rem;
+  }
 }

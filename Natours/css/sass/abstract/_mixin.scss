@@ -12,33 +12,3 @@
     clear: both;
   }
 }
-@mixin makeMarginBottom() {
-  @for $i from 1 through 10 {
-    #{".u-margin-bottom-" + #{$i}} {
-      margin-bottom: #{$i}rem;
-    }
-  }
-}
-
-@mixin makeMarginTop() {
-  @for $i from 1 through 10 {
-    #{".u-margin-top-" + #{$i}} {
-      margin-top: #{$i}rem;
-    }
-  }
-}
-@mixin makeMarginRight() {
-  @for $i from 1 through 10 {
-    #{".u-margin-right-" + #{$i}} {
-      margin-right: #{$i}rem;
-    }
-  }
-}
-
-@mixin makeMarginLeft() {
-  @for $i from 1 through 10 {
-    #{".u-margin-left-" + #{$i}} {
-      margin-left: #{$i}rem;
-    }
-  }
-}
