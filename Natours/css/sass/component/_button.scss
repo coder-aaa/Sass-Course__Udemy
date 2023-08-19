@@ -47,6 +47,13 @@
       background-color: $white;
     }
   }
+  &--green {
+    background-color: $light-green;
+    color: $white;
+    &::after {
+      background-color: $light-green;
+    }
+  }
   &--animated {
     @include animation(moveInBottom, 0.5s, ease-out);
     /*Applies styles before the animation starts*/

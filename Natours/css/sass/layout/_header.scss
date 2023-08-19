@@ -11,6 +11,7 @@
   /*Make the background always stays the top*/
   background-position: top;
   /*Defines how the polygon or shape should be. Its start from the left to right on the x y axis*/
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 
   &__logo-box {
