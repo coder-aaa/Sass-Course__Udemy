@@ -5,11 +5,27 @@
   padding: 0;
   box-sizing: inherit;
 }
-body {
-  box-sizing: border-box;
-}
 html {
   /*Defines what 1 rem is
   In this case 10 px.*/
   font-size: 62.5%;
+  /* Media queries with max-width should go before the ones with min-width each
+  the larger media query going first.*/
+  @include responsive(tab-land) {
+    font-size: 56.25%; // 1 rem = 9px
+  }
+  @include responsive(tab-port) {
+    font-size: 50%; // 1rem = 8px, 8/16 * 100 = 50%
+  }
+  @include responsive(big-desktop) {
+    font-size: 75%; // 1 rem = 12px
+  }
+}
+
+body {
+  box-sizing: border-box;
+  padding: 3rem;
+  @include responsive(tab-port) {
+    padding: 0;
+  }
 }

@@ -3,10 +3,11 @@
 
 @import "./layout/grid", "./layout/header";
 
-@import "./layout/header";
+@import "./layout/navigation", "./layout/header";
 @import "./component/button", "./component/composition",
   "./component/feature-box", "./component/card", "./component/story",
-  "./component/bg-video", "./component/form";
+  "./component/bg-video", "./component/form", "./component/popup";
 
+@import "./layout/footer";
 @import "./pages/home";
 @import "./base/animation";

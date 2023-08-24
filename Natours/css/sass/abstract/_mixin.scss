@@ -25,3 +25,44 @@
     url(#{$img_url});
 }
 
+@mixin absolute_center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/*
+ * $breakpoint argument choices:
+ * - phone
+ * - tab-port
+ * - tab-land
+ * - big-desktop
+
+ * 1rem = 16px
+ */
+@mixin responsive($breakpoint) {
+  @if $breakpoint == phone {
+    //600px
+    @media (max-width: 37.5rem) {
+      @content;
+    }
+  }
+  @if $breakpoint == tab-port {
+    //900px
+    @media (max-width: 56.25rem) {
+      @content;
+    }
+  }
+  @if $breakpoint == tab-land {
+    //1200px
+    @media (max-width: 75rem) {
+      @content;
+    }
+  }
+  @if $breakpoint == big-desktop {
+    //1800px
+    @media (min-width: 112.5rem) {
+      @content;
+    }
+  }
+}

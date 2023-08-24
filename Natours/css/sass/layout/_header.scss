@@ -32,4 +32,8 @@
     /*Centers the element*/
     transform: translate(-50%, -50%);
   }
+  @include responsive(phone) {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+  }
 }
