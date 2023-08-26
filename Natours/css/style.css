@@ -287,7 +287,7 @@ body {
 @media (max-width: 37.5rem) {
   .navigation__button {
     top: 3rem;
-    left: 3rem;
+    right: 3rem;
   }
 }
 .navigation__background {
