@@ -1,13 +1,40 @@
-@import "./abstract/function", "./abstract/mixin", "./abstract/variables";
-@import "./base/base", "./base/typography", "./base/utilities";
 
-@import "./layout/grid", "./layout/header";
+@import "./abstract/_function.scss";
 
-@import "./layout/navigation", "./layout/header";
-@import "./component/button", "./component/composition",
-  "./component/feature-box", "./component/card", "./component/story",
-  "./component/bg-video", "./component/form", "./component/popup";
+@import "./abstract/_mixin.scss";
 
-@import "./layout/footer";
-@import "./pages/home";
-@import "./base/animation";
+@import "./abstract/_variables.scss";
+
+@import "./base/_animation.scss";
+
+@import "./base/_base.scss";
+
+@import "./base/_typography.scss";
+
+@import "./base/_utilities.scss";
+
+@import "./component/_bg-video.scss";
+
+@import "./component/_button.scss";
+
+@import "./component/_card.scss";
+
+@import "./component/_composition.scss";
+
+@import "./component/_feature-box.scss";
+
+@import "./component/_form.scss";
+
+@import "./component/_popup.scss";
+
+@import "./component/_story.scss";
+
+@import "./layout/_footer.scss";
+
+@import "./layout/_grid.scss";
+
+@import "./layout/_header.scss";
+
+@import "./layout/_navigation.scss";
+
+@import "./pages/_home.scss";
