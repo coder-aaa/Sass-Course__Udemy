@@ -6,6 +6,7 @@ SHELL := powershell.exe
 # example %.c meaning any c 
 # $@ is replaced with the target
 # $^ is replaced with the dependency
+# @ does not log the what the action does
 #target: dependencies
 #	action
 BASEDIR = ./css/sass
@@ -20,20 +21,20 @@ RELATIVEPATH =  $(foreach FILE, $(SASSFILESPATH), $(subst $(BASEDIR),.,$(FILE)))
 all: clean $(OutputFile) fixMain sass
 
 $(OutputFile):
-	$(SHELL) [Console]::OutputEncoding = [System.text.Encoding]::UTF8
-	$(SHELL) new-item $(OutputFile)
+	@$(SHELL) [Console]::OutputEncoding = [System.text.Encoding]::UTF8
+	@$(SHELL) new-item $(OutputFile)
 #add imports for each file found in sass directories
-	$(SHELL) $(foreach FILE, $(RELATIVEPATH),   Add-Content -Path $(OutputFile) -Value '//'; Add-Content -Path $(OutputFile) -Value '@import "$(FILE)";'; )
+	@$(SHELL) $(foreach FILE, $(RELATIVEPATH),   Add-Content -Path $(OutputFile) -Value '//'; Add-Content -Path $(OutputFile) -Value '@import "$(FILE)";'; )
 
 
 sass:  
-	sass --watch $(OutputFile):$(GENCSS)
+	@sass --watch $(OutputFile):$(GENCSS)
 
 clean:
-	rm css/style.*
-	rm $(BASEDIR)/main.*
+	@rm css/style.*
+	@rm $(BASEDIR)/main.*
 
 
 
 fixMain: 
-	$(SHELL) cat $(OutputFile) | foreach($$_){ $$_ -replace "//"} | Set-Content $(OutputFile)
+	@$(SHELL) cat $(OutputFile) | foreach($$_){ $$_ -replace "//"} | Set-Content $(OutputFile)
