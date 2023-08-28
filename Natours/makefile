@@ -18,23 +18,27 @@ SASSFILESPATH = $(foreach DIR, $(SASSDIR), $(wildcard $(DIR)/*.scss))
 OutputFile := $(BASEDIR)/main.scss
 RELATIVEPATH =  $(foreach FILE, $(SASSFILESPATH), $(subst $(BASEDIR),.,$(FILE)))
 
-all: clean $(OutputFile) fixMain sass
+all: clean minimizeFile sass
 
 $(OutputFile):
 	@$(SHELL) [Console]::OutputEncoding = [System.text.Encoding]::UTF8
-	@$(SHELL) new-item $(OutputFile)
+#	@$(SHELL) new-item $(OutputFile)
 #add imports for each file found in sass directories
-	@$(SHELL) $(foreach FILE, $(RELATIVEPATH),   Add-Content -Path $(OutputFile) -Value '//'; Add-Content -Path $(OutputFile) -Value '@import "$(FILE)";'; )
+	@$(SHELL) Add-Content $(OutputFile) -Value "//"; $(foreach FILE, $(RELATIVEPATH),\
+		Add-Content -Path $(OutputFile) -Value\
+		"@import `"$(FILE)`";" -NoNewLine;)
 
 
 sass:  
-	@sass --watch $(OutputFile):$(GENCSS)
+	@$(SHELL) sass --watch $(OutputFile):$(GENCSS)
 
 clean:
-	@rm css/style.*
-	@rm $(BASEDIR)/main.*
+	@$(SHELL) rm css/style.*
+	@$(SHELL) rm $(BASEDIR)/main.scss
 
 
 
-fixMain: 
-	@$(SHELL) cat $(OutputFile) | foreach($$_){ $$_ -replace "//"} | Set-Content $(OutputFile)
+minimizeFile:$(OutputFile)
+	@$(SHELL) cat $^ | foreach($$_){ $$_ -replace "//"} | Set-Content $^
+	@$(SHELL) cat $^ | foreach($$_){ $$_ -replace "\s"} | Set-Content $^
+	@$(SHELL) cat $^ | Where-Object{ $$_ -match "\S"} | Set-Content $^
