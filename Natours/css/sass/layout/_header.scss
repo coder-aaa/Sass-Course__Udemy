@@ -40,8 +40,8 @@
    * resolution
    * , are used to indicate or in media queries
   */
-  @media (min-resolution: 192dpi) and (min-width: 37.5rem),
-    (min-width: 125rem) {
+  @media only screen and (min-resolution: 192dpi) and (min-width: 37.5rem),
+    only screen and (min-width: 125rem) {
     @include background_gradient_with_image(
       "../img/hero.jpg",
       $light-green,

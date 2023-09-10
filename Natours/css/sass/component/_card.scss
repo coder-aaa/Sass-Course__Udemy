@@ -153,7 +153,9 @@
     font-weight: 100;
   }
 
-  @include responsive(tab-port) {
+  // @include responsive(tab-port) {
+  @media only screen and (max-width: 56.25),
+    /*Applies only for screens that does not allow hover*/ only screen and (hover: none) {
     height: auto;
     border-radius: 0.3rem;
     background-color: $white;
