@@ -1,0 +1,32 @@
+# -*- MakeFile -*-
+SHELL := powershell.exe
+BASEDIR = ./sass
+GENCSS = ./css/style.css
+SASSDIR = $(foreach DIR, $(BASEDIR), $(wildcard $(DIR)/*))
+SASSFILESPATH = $(foreach DIR, $(SASSDIR), $(wildcard $(DIR)/*.scss))
+OutputFile := $(BASEDIR)/main.scss
+RELATIVEPATH =  $(foreach FILE, $(SASSFILESPATH), $(subst $(BASEDIR),.,$(FILE)))
+
+all: clean minimizeFile
+
+$(OutputFile):
+	@$(SHELL) [Console]::OutputEncoding = [System.text.Encoding]::UTF8
+#imports for each file found in sass directories
+	@$(SHELL) Add-Content $(OutputFile) -Value "//"; Add-Content $(OutputFile) -Value "@import" -NoNewLine; $(foreach FILE, $(RELATIVEPATH),\
+		Add-Content -Path $(OutputFile) -Value\
+		"`"$(FILE)`"," -NoNewLine;)
+	@$(SHELL) Add-Content $(OutputFile) -Value "//" -NoNewLine ; Add-Content $(OutputFile) -Value ";" -NoNewLine;
+
+
+
+clean:
+	@$(SHELL) rm css/style.*
+	@$(SHELL) rm $(BASEDIR)/main.scss
+
+
+
+minimizeFile:$(OutputFile)
+	@$(SHELL) cat $^ | foreach($$_){ $$_ -replace ",//"} | Set-Content $^
+	@$(SHELL) cat $^ | foreach($$_){ $$_ -replace "//"} | Set-Content $^
+	@$(SHELL) cat $^ | foreach($$_){ $$_ -replace "\s"} | Set-Content $^
+	@$(SHELL) cat $^ | Where-Object{ $$_ -match "\S"} | Set-Content $^
