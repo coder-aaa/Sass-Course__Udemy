@@ -12,6 +12,7 @@
     @include responsive(tab-port) {
       float: left;
       position: relative;
+      width: 33.333333%;
       box-shadow: 0 1.5rem 3rem rgba($black, 0.2);
     }
 
@@ -37,6 +38,7 @@
       top: 10rem;
       @include responsive(tab-port) {
         top: 1rem;
+        left: 0;
         transform: scale(1.1);
       }
     }

@@ -3,7 +3,7 @@
 SHELL := powershell.exe
 #Syntax
 # % wildcard meaning any
-# example %.c meaning any c 
+# example %.c meaning any c
 # $@ is replaced with the target
 # $^ is replaced with the dependency
 # @ does not log the what the action does
@@ -22,14 +22,14 @@ all: clean minimizeFile sass
 
 $(OutputFile):
 	@$(SHELL) [Console]::OutputEncoding = [System.text.Encoding]::UTF8
-#	@$(SHELL) new-item $(OutputFile)
-#add imports for each file found in sass directories
-	@$(SHELL) Add-Content $(OutputFile) -Value "//"; $(foreach FILE, $(RELATIVEPATH),\
+#imports for each file found in sass directories
+	@$(SHELL) Add-Content $(OutputFile) -Value "//"; Add-Content $(OutputFile) -Value "@import" -NoNewLine; $(foreach FILE, $(RELATIVEPATH),\
 		Add-Content -Path $(OutputFile) -Value\
-		"@import `"$(FILE)`";" -NoNewLine;)
+		"`"$(FILE)`"," -NoNewLine;)
+	@$(SHELL) Add-Content $(OutputFile) -Value "//" -NoNewLine ; Add-Content $(OutputFile) -Value ";" -NoNewLine;
 
 
-sass:  
+sass:
 	@$(SHELL) sass --watch $(OutputFile):$(GENCSS)
 
 clean:
@@ -39,6 +39,7 @@ clean:
 
 
 minimizeFile:$(OutputFile)
+	@$(SHELL) cat $^ | foreach($$_){ $$_ -replace ",//"} | Set-Content $^
 	@$(SHELL) cat $^ | foreach($$_){ $$_ -replace "//"} | Set-Content $^
 	@$(SHELL) cat $^ | foreach($$_){ $$_ -replace "\s"} | Set-Content $^
 	@$(SHELL) cat $^ | Where-Object{ $$_ -match "\S"} | Set-Content $^

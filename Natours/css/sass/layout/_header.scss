@@ -1,9 +1,9 @@
 .header {
   position: relative;
-  height: 95vh;
+  height: 85vh;
   /*The nearest image or to : will be at the top*/
   @include background_gradient_with_image(
-    "../img/hero.jpg",
+    "../img/hero-small.jpg",
     $light-green,
     $dark-green
   );
@@ -11,9 +11,12 @@
   /*Make the background always stays the top*/
   background-position: top;
   /*Defines how the polygon or shape should be. Its start from the left to right on the x y axis*/
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 
+  @supports (clip-path: polygon(0 0)) {
+    height: 95vh;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  }
   &__logo-box {
     position: absolute;
     top: 4rem;
@@ -32,6 +35,20 @@
     /*Centers the element*/
     transform: translate(-50%, -50%);
   }
+  /*
+   * the resolution property is used to target device
+   * resolution
+   * , are used to indicate or in media queries
+  */
+  @media (min-resolution: 192dpi) and (min-width: 37.5rem),
+    (min-width: 125rem) {
+    @include background_gradient_with_image(
+      "../img/hero.jpg",
+      $light-green,
+      $purple
+    );
+  }
+
   @include responsive(phone) {
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);

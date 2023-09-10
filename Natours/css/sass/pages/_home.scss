@@ -22,13 +22,13 @@
     transform: skewY(7deg);
   }
   @include responsive(tab-port) {
-    padding: 15rem 0;
+    padding: 10rem 0;
   }
 }
 
 .section-tours {
   background-color: $light-gray;
-  padding: 25rem 0 50rem 0;
+  padding: 25rem 0 15rem 0;
   margin-top: -10rem;
   @include responsive(tab-port) {
     padding: 20rem 0 10rem 0;
@@ -66,10 +66,32 @@
     url(../img/nat-10.jpg);
   background-size: cover;
   border-radius: 0.3rem;
-  height: 50rem;
   box-shadow: 0 1.5rem 4rem rgba($black, 0.2);
+  @include responsive(tab-land) {
+    background-image: linear-gradient(
+        105deg,
+        rgba($white, 0.9) 0%,
+        rgba($white, 0.9) 65%,
+        transparent 65%
+      ),
+      url(../img/nat-10.jpg);
+  }
+  @include responsive(tab-port) {
+    background-image: linear-gradient(
+        105deg,
+        rgba($white, 0.9) 0%,
+        rgba($white, 0.9) 100%
+      ),
+      url(../img/nat-10.jpg);
+  }
   &__form {
     width: 50%;
     padding: 6rem;
+    @include responsive(tab-land) {
+      width: 65%;
+    }
+    @include responsive(tab-port) {
+      width: 100%;
+    }
   }
 }

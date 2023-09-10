@@ -8,18 +8,31 @@
   padding-left: 9rem;
   font-size: $font-small;
   transform: skewX(-12deg);
+  @include responsive(tab-port) {
+    width: 100%;
+    padding: 4rem;
+    padding-left: 7rem;
+    transform: skewX(0);
+  }
   &__shape {
     width: 15rem;
     height: 15rem;
     float: left;
-    -webkit-shape-outside: circle(50% at 50% 50%);
-    shape-outside: circle(50% at 50% 50%);
-    -webkit-clip-path: circle(50% at 50% 50%);
-    clip-path: circle(50% at 50% 50%);
     /*When an element is floated,
     it is best to use the transform
     property to provide the margin*/
     transform: translateX(-3rem) skewX(12deg);
+    position: relative;
+    overflow: hidden;
+    @include responsive(tab-port) {
+      transform: translateX(-3rem) skewX(0);
+    }
+    @supports (clip-path: polygon(0 0)) {
+      -webkit-shape-outside: circle(50% at 50% 50%);
+      shape-outside: circle(50% at 50% 50%);
+      -webkit-clip-path: circle(50% at 50% 50%);
+      clip-path: circle(50% at 50% 50%);
+    }
   }
   &__img {
     height: 100%;
@@ -30,6 +43,9 @@
 
   &__text {
     transform: skewX(12deg);
+    @include responsive(tab-port) {
+      transform: skewX(0);
+    }
   }
   &__caption {
     position: absolute;
