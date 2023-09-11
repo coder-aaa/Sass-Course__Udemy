@@ -43,6 +43,6 @@ body {
 }
 
 ::selection {
-  background-color: $primary;
+  background-color: var(--primary);
   color: $grey-light-1;
 }
