@@ -1,0 +1,47 @@
+:root {
+  //#{} is used for value interpolation
+  --primary: #{$primary};
+  --primary-light: #{$primary-light};
+  --primary-dark: #{$primary-dark};
+
+  --grey-light-1: #{$grey-light-1};
+  --grey-light-2: #{$grey-light-2};
+  --grey-light-3: #{$grey-light-3};
+  --grey-light-4: #{$grey-light-4};
+
+  --grey-dark-1: #{$grey-dark-1};
+  --grey-dark-2: #{$grey-dark-2};
+  --grey-dark-3: #{$grey-dark-3};
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; // 1rem = 10px
+}
+body {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  color: var(--grey-dark-2);
+  line-height: 1.6;
+  background-image: linear-gradient(
+    to right bottom,
+    var(--primary-light),
+    var(--primary-dark)
+  );
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+::selection {
+  background-color: $primary;
+  color: $grey-light-1;
+}
