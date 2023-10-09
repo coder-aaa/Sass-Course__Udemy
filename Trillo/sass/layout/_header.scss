@@ -1,5 +1,11 @@
 .header {
+  display: flex;
   height: 7rem;
+  font-size: 1.4rem;
   background-color: $white;
+  //Used on the main flex container for the X axis
+  justify-content: space-between; //Divides the space between child elements evenly
+  //Used on the main flex container for the Y axis
+  align-items: center;
   border-bottom: var(--grey-light-1);
 }
