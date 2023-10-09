@@ -1,3 +1,12 @@
+/*
+ * COLORS
+ */
+/*
+ * SHADOWS
+ */
+/*
+ * FONT SIZE
+ */
 :root {
   --primary: #eb2f64;
   --primary-light: #ff3366;
@@ -42,6 +51,10 @@ body {
 ::selection {
   background-color: var(--primary);
   color: #faf9f9;
+}
+
+.logo {
+  height: 3.25rem;
 }
 
 .container {
