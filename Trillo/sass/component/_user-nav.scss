@@ -1,6 +1,18 @@
 .user-nav {
   &__icon {
+    height: 2.25rem;
+    width: 2.25rem;
     &-box {
+    }
+  }
+  &__user {
+    &-icon {
+    }
+    &-name {
+    }
+    &-photo {
+      height: 3.75rem;
+      border-radius: 50%;
     }
   }
 }
